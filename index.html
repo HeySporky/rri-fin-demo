@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- @author Kingler 🦀 | 2026-10-09 | Fin (Intercom) trial demo — public, anonymous chat only (no account lookups) -->
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tony Robbins Support — Fin Demo</title>
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0b0b0c;color:#eee}
+  header{padding:28px 32px;border-bottom:3px solid #c8102e}
+  header h1{margin:0;font-size:22px;letter-spacing:.5px} header p{margin:6px 0 0;color:#aaa;font-size:14px}
+  main{max-width:760px;margin:32px auto;padding:0 24px}
+  .card{background:#17171a;border:1px solid #2a2a2e;border-radius:10px;padding:22px;margin-bottom:22px}
+  .card h2{margin:0 0 10px;font-size:16px;color:#fff}
+  label{display:block;font-size:13px;color:#aaa;margin:10px 0 4px}
+  input{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:6px;border:1px solid #333;background:#0f0f11;color:#fff;font-size:15px}
+  button{margin-top:14px;padding:10px 18px;border:0;border-radius:6px;background:#c8102e;color:#fff;font-weight:600;cursor:pointer;font-size:14px}
+  button.secondary{background:#333;margin-left:8px}
+  #status{margin-top:12px;font-size:13px;color:#8fd18f;min-height:18px}
+  ul{margin:8px 0 0 18px;padding:0;line-height:1.8;font-size:14px} li code{cursor:pointer;background:#222;padding:2px 6px;border-radius:4px}
+  .warn{font-size:12.5px;color:#d9a441;line-height:1.5}
+</style></head>
+<body>
+<header><h1>TONY ROBBINS · Customer Support</h1><p>Fin AI agent trial demo — internal use only</p></header>
+<main>
+  <div class="card">
+    <h2>Try our AI support agent</h2>
+    <p style="font-size:14px;color:#bbb;margin:0">Click the chat bubble in the bottom-right corner (or the button below) and ask anything you'd normally ask Tony Robbins customer support.</p>
+    <button id="anon">Open chat</button>
+    <div id="status"></div>
+  </div>
+  <div class="card">
+    <h2>Things to try</h2>
+    <p style="font-size:13px;color:#999;margin:0">Click to copy.</p>
+    <ul id="tries">
+      <li><code>I can't make my event anymore. Can I transfer my ticket?</code></li>
+      <li><code>What is the UPW Satisfaction Guarantee?</code></li>
+      <li><code>How do I cancel my Tony AI subscription?</code></li>
+      <li><code>Necesito ayuda con mi boleto para Unleash the Power Within.</code></li>
+    </ul>
+  </div>
+  <p class="warn">Internal preview of a support tool we're evaluating. Answers come from our support knowledge base and may not be final. Please don't share outside the team.</p>
+</main>
+<script>
+  var APP_ID = "mvj40ete";
+  window.intercomSettings = { api_base: "https://api-iam.intercom.io", app_id: APP_ID, messenger_environment: "d1yvlljbcb" };
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/'+APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+
+  function status(t){document.getElementById('status').textContent=t;}
+  function restart(settings, label){
+    Intercom('shutdown');
+    var s = Object.assign({ api_base: "https://api-iam.intercom.io", app_id: APP_ID, messenger_environment: "d1yvlljbcb" }, settings);
+    window.intercomSettings = s;
+    Intercom('boot', s);
+    setTimeout(function(){ Intercom('show'); }, 600);
+    status(label);
+  }
+    if(n) s.name = n;
+    restart(s, 'Chatting as ' + e);
+  };
+  document.getElementById('anon').onclick = function(){ restart({}, 'Chatting as an anonymous visitor'); };
+  document.querySelectorAll('#tries code').forEach(function(c){ c.onclick=function(){ navigator.clipboard && navigator.clipboard.writeText(c.textContent); status('Copied: ' + c.textContent); }; });
+</script>
+</body></html>
