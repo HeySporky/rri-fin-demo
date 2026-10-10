@@ -52,9 +52,6 @@
     setTimeout(function(){ Intercom('show'); }, 600);
     status(label);
   }
-    if(n) s.name = n;
-    restart(s, 'Chatting as ' + e);
-  };
   document.getElementById('anon').onclick = function(){ restart({}, 'Chatting as an anonymous visitor'); };
   document.querySelectorAll('#tries code').forEach(function(c){ c.onclick=function(){ navigator.clipboard && navigator.clipboard.writeText(c.textContent); status('Copied: ' + c.textContent); }; });
 </script>
