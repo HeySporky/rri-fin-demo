@@ -49,7 +49,7 @@
     var s = Object.assign({ api_base: "https://api-iam.intercom.io", app_id: APP_ID, messenger_environment: "d1yvlljbcb" }, settings);
     window.intercomSettings = s;
     Intercom('boot', s);
-    setTimeout(function(){ Intercom('show'); }, 600);
+    setTimeout(function(){ Intercom('showNewMessage'); }, 600);
     status(label);
   }
   document.getElementById('anon').onclick = function(){ restart({}, 'Chatting as an anonymous visitor'); };
